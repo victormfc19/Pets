@@ -1,0 +1,8 @@
+.custom-header
+{
+     background-color: #EBF7F4;
+     text-align: center; /* Centra el contenido del encabezado */
+     padding: 20px; /* Añade un relleno alrededor del encabezado */
+   /*  border: 2px solid #ccc;  Añade un borde alrededor del encabezado */
+     border-radius: 10px; /* Añade esquinas redondeadas al borde */
+}
