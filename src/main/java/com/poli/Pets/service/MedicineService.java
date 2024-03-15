@@ -29,4 +29,21 @@ public class MedicineService {
     public void deleteMedicine(String id){
         medicineRepository.deleteById(id);
     }
+
+    public MedicineEntity updateMedicine(MedicineEntity newMedicine){
+
+        Optional<MedicineEntity> medicine = medicineRepository.findById(newMedicine.getId());
+
+        if(medicine.isPresent()){
+
+            MedicineEntity updatedMedicine = medicine.get();
+            updatedMedicine.setName(newMedicine.getName());
+            updatedMedicine.setDescription(newMedicine.getDescription());
+            updatedMedicine.setDose(newMedicine.getDose());
+
+            return medicineRepository.save(updatedMedicine);
+        }
+
+        return null;
+    }
 }

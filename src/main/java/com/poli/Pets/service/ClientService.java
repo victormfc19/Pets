@@ -31,4 +31,22 @@ public class ClientService {
         clientRepository.deleteById(id);
     }
 
+    public ClientEntity updateClient(ClientEntity newClient){
+
+        Optional<ClientEntity> client = clientRepository.findById(newClient.getId());
+
+        if( client.isPresent() ){
+
+            ClientEntity updatedClient = client.get();
+            updatedClient.setNames(newClient.getNames());
+            updatedClient.setLastNames(newClient.getLastNames());
+            updatedClient.setAddress(newClient.getAddress());
+            updatedClient.setPhone(newClient.getPhone());
+
+            return clientRepository.save(updatedClient);
+        }
+
+        return null;
+    }
+
 }

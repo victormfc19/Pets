@@ -1,6 +1,7 @@
 package com.poli.Pets.controller;
 
 
+import ch.qos.logback.core.net.server.Client;
 import com.poli.Pets.entity.ClientEntity;
 import com.poli.Pets.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,8 @@ public class ClientController {
     public void deleteClient(@PathVariable String id){
         clientService.deleteClient(id);
     }
-
-
+    @PutMapping("/client")
+    public ClientEntity updateClient(@RequestBody ClientEntity client){
+        return clientService.updateClient(client);
+    }
 }

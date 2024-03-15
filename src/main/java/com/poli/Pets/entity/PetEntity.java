@@ -1,9 +1,6 @@
 package com.poli.Pets.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -12,8 +9,9 @@ import lombok.Data;
 public class PetEntity {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     @Column(name = "id")
-    private String id;
+    private Integer id;
 
     @Column(name = "nombre")
     private String name;
@@ -24,13 +22,19 @@ public class PetEntity {
     @Column(name = "edad")
     private int age;
 
+    @Column(name = "peso")
+    private int weight;
+
+    @Column(name = "id_cliente")
+    private String idCliente;
+
     public PetEntity() {}
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -56,5 +60,21 @@ public class PetEntity {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public String getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 }

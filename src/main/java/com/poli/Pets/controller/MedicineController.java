@@ -35,6 +35,9 @@ public class MedicineController {
     public void deleteMedicine(@PathVariable String id){
         medicineService.deleteMedicine(id);
     }
-
+    @PutMapping("/medicine")
+    public MedicineEntity updateMedicine(@RequestBody MedicineEntity medicine){
+        return medicineService.updateMedicine(medicine);
+    }
 
 }

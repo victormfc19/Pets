@@ -6,3 +6,14 @@
    /*  border: 2px solid #ccc;  Añade un borde alrededor del encabezado */
      border-radius: 10px; /* Añade esquinas redondeadas al borde */
 }
+
+.textBtn
+{
+    color: white;
+    text-decoration: none; /* Quita el subrayado */
+}
+
+.form-group
+{
+    padding: 10px;
+}

@@ -25,8 +25,22 @@ public class PetService {
     public void savePet(PetEntity pet){
         petRepository.save(pet);
     }
-
     public void deletePet(String id){
         petRepository.deleteById(id);
+    }
+
+    public void updatePet(PetEntity newPet){
+
+        Optional<PetEntity> pet = petRepository.findById(String.valueOf( newPet.getId() ));
+
+        if(pet.isPresent()){
+
+            PetEntity updatedPet = pet.get();
+            updatedPet.setName(newPet.getName());
+            updatedPet.setAge(newPet.getAge());
+            updatedPet.setRace(newPet.getRace());
+
+            petRepository.save(updatedPet);
+        }
     }
 }

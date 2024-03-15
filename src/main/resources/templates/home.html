@@ -22,11 +22,18 @@
             <!-- Botones en la mitad izquierda de la pantalla -->
             <div class="col-md-6 d-grid gap-3 mx-auto">
 
-                <button class="btn btn-primary btn-lg btn-block"> Registrar nueva mascota </button>
-                <button class="btn btn-secondary btn-lg btn-block">
-                    <a th:href="@{/api/v1/pets}"> Listar mascotas </a>
+                <button class="btn btn-primary btn-lg btn-block">
+                    <a th:href="@{/api/v1/addPet}" class="textBtn"> Registrar nueva mascota </a>
                 </button>
-                <button class="btn btn-success btn-lg btn-block"> Ver reporte medicamentos</button>
+
+                <button class="btn btn-secondary btn-lg btn-block">
+                    <a th:href="@{/api/v1/pets}" class="textBtn"> Listar mascotas  </a>
+
+                </button>
+
+                <button class="btn btn-success btn-lg btn-block">
+                    <a th:href="@{/api/v1/viewReport}" class="textBtn"> Ver reporte medicamentos  </a>
+                </button>
 
             </div>
 

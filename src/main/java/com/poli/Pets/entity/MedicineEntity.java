@@ -16,7 +16,7 @@ public class MedicineEntity {
     @Column(name = "nombre")
     private String name;
 
-    @Column(name = "descricion")
+    @Column(name = "descripcion")
     private String description;
 
     @Column(name = "dosis")
