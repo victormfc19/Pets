@@ -3,9 +3,19 @@
      background-color: #EBF7F4;
      text-align: center; /* Centra el contenido del encabezado */
      padding: 20px; /* Añade un relleno alrededor del encabezado */
-   /*  border: 2px solid #ccc;  Añade un borde alrededor del encabezado */
      border-radius: 10px; /* Añade esquinas redondeadas al borde */
 }
+
+.formAddPet
+{
+    padding: 34px;
+}
+
+.botones
+{
+    padding: 40px 20px 10px 0;
+}
+
 
 .textBtn
 {
@@ -16,4 +26,9 @@
 .form-group
 {
     padding: 10px;
+}
+
+.botonFlecha
+{
+    color: black;
 }

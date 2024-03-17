@@ -18,7 +18,9 @@
                 <th scope="col"> Nombre </th>
                 <th scope="col"> Raza </th>
                 <th scope="col"> Edad </th>
+                <th scope="col"> Peso(Kg) </th>
                 <th scope="col"> Cedula dueño </th>
+
             </tr>
             </thead>
 
@@ -29,7 +31,14 @@
                 <td th:text="${pet.name}"> </td>
                 <td th:text="${pet.race}"> </td>
                 <td th:text="${pet.age}"> </td>
+                <td th:text="${pet.weight}"> </td>
                 <td th:text="${pet.idCliente}"> </td>
+                <td>
+                    <a th:href="@{/api/v1/pets/edit/{id}(id=${pet.id})}" class="btn btn-info"> Editar </a>
+                </td>
+                <td>
+                    <a th:href="@{/api/v1/pets/delete/{id}(id=${pet.id})}" class="btn btn-danger"> Eliminar </a>
+                </td>
             </tr>
             </tbody>
         </table>
@@ -40,7 +49,9 @@
         <a th:href="@{/api/v1/home}">
             <button type="button" class="btn btn-primary"> Volver al inicio </button>
         </a>
-
+        <a th:href="@{/api/v1/addPet}">
+            <button type="button" class="btn btn-success"> Agregar nueva mascota </button>
+        </a>
     </div>
 
 </body>

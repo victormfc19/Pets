@@ -20,6 +20,7 @@ public class DataForm {
 
     private int weight;
 
+
     public DataForm() {}
 
 
@@ -94,4 +95,5 @@ public class DataForm {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
 }
