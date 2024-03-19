@@ -22,4 +22,8 @@ public interface PetRepository extends JpaRepository<PetEntity, Integer> {
     @Query(value = "select * from mascota m where m.id_cliente = :cedula", nativeQuery = true)
     List<PetEntity> dataByCedula(String cedula);
 
+    @Query(value = "select m.id ,m.nombre ,m.raza ,m.edad ,m.peso from mascota m join cliente c on m.id_cliente = c.cedula \n" +
+            "where m.id_cliente = :cedula", nativeQuery = true)
+    List<String> infoByCedula(String cedula);
+
 }

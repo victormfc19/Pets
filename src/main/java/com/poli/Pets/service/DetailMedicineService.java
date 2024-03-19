@@ -34,4 +34,8 @@ public class DetailMedicineService {
         return detailMedicine.deleteAllById(id);
     }
 
+    public List<String> infoMedicinesByPet(Integer id){
+        return detailMedicine.infoMedicinesByPet(id);
+    }
+
 }

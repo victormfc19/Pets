@@ -3,6 +3,8 @@ package com.poli.Pets.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "mascota")
@@ -29,6 +31,14 @@ public class PetEntity {
     private String idCliente;
 
     public PetEntity() {}
+
+    public PetEntity(Integer id, String name, String race, int age, int weight) {
+        this.id = id;
+        this.name = name;
+        this.race = race;
+        this.age = age;
+        this.weight = weight;
+    }
 
     public Integer getId() {
         return id;
@@ -76,5 +86,19 @@ public class PetEntity {
 
     public void setIdCliente(String idCliente) {
         this.idCliente = idCliente;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "PetEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", race='" + race + '\'' +
+                ", age=" + age +
+                ", weight=" + weight +
+                ", idCliente='" + idCliente + '\'' +
+                '}';
     }
 }

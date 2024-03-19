@@ -1,23 +1,19 @@
 package com.poli.Pets.entity;
-
-import com.poli.Pets.service.MedicineService;
-
 import java.util.List;
-import java.util.Optional;
+
 
 public class DataReport {
 
-    private List<PetEntity> pet;
+    private List<Pet> pet;
     private ClientEntity client;
-    private List<Optional<MedicineEntity>> medicine;
 
     public DataReport() {}
 
-    public List<PetEntity> getPet() {
+    public List<Pet> getPet() {
         return pet;
     }
 
-    public void setPet(List<PetEntity> pet) {
+    public void setPet(List<Pet> pet) {
         this.pet = pet;
     }
 
@@ -29,11 +25,5 @@ public class DataReport {
         this.client = client;
     }
 
-    public List<Optional<MedicineEntity>> getMedicine() {
-        return medicine;
-    }
-
-    public void setMedicine(List<Optional<MedicineEntity>> medicine) {
-        this.medicine = medicine;
-    }
 }
+

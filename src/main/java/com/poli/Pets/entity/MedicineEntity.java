@@ -24,6 +24,12 @@ public class MedicineEntity {
 
     public MedicineEntity() {}
 
+    public MedicineEntity(String name, String description, int dose) {
+        this.name = name;
+        this.description = description;
+        this.dose = dose;
+    }
+
     public String getId() {
         return id;
     }

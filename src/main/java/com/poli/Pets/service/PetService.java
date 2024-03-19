@@ -54,5 +54,7 @@ public class PetService {
         return petRepository.dataFromReport(cedula);
     }
 
-
+    public List<String> infoPetByCedula(String cedula){
+        return petRepository.infoByCedula(cedula);
+    }
 }

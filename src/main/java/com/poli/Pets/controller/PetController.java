@@ -10,9 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 
 @Controller
@@ -135,31 +133,48 @@ public class PetController {
     public String report(Model model){
 
         List<ClientEntity> clients = clientService.getAllClients();
-        List<DataReport> dataReportList = new ArrayList<>();
+
+
+
+        List<DataReport> listData = new ArrayList<>();
 
         for(ClientEntity c: clients){
 
-            List<PetEntity> pets = petService.getPetByCedula(c.getId());
-            List<Optional<DetailMedicineEntity>> medicinesDetail = null;
-
-            for(PetEntity pet: pets){
-                medicinesDetail.add( detailMedicineService.findById( pet.getId() ));
-            }
-
-            assert medicinesDetail != null;
-            for(Optional<DetailMedicineEntity> dm: medicinesDetail){
-
-            }
-
             DataReport data = new DataReport();
-            data.setClient(c);
-            data.setPet(pets);
-           // data.setMedicine(medicines);
+            List<String> infoPets = petService.infoPetByCedula(c.getId());
+            List<Pet> petsByClient = new ArrayList<>();
 
-            dataReportList.add(data);
+            infoPets.forEach(pet -> {
+
+                String[] datosPet;
+                datosPet = pet.split(",");
+                List<String> infoMedicines = detailMedicineService.infoMedicinesByPet( Integer.valueOf(datosPet[0] ));
+                PetEntity petEntity = new PetEntity(Integer.valueOf(datosPet[0]), datosPet[1], datosPet[2], Integer.parseInt(datosPet[3]), Integer.parseInt(datosPet[4]));
+                Pet dataPet = new Pet();
+                dataPet.setPet(petEntity);
+                List<MedicineEntity> medicineByPet = new ArrayList<>();
+                infoMedicines.forEach(medicine -> {
+
+                    String[] datosMedicamento;
+                    datosMedicamento = medicine.split(",");
+                    medicineByPet.add( new MedicineEntity( datosMedicamento[0], datosMedicamento[1], Integer.parseInt(datosMedicamento[2])));
+
+                });
+
+                dataPet.setMedicines(medicineByPet);
+                petsByClient.add(dataPet);
+
+            });
+
+            data.setPet(petsByClient);
+            data.setClient(c);
+            listData.add(data);
+
         }
 
-        model.addAttribute("dataReport", dataReportList);
+
+
+        model.addAttribute("listaCompleta", listData);
         return "viewReport";
     }
 

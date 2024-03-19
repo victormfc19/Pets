@@ -12,26 +12,69 @@
 
     <div class="container mt-5">
 
-        <div class="card mt-4" th:each="data: ${dataReport}">
+        <header class="custom-header">
+            <h1> Reporte veterinaria </h1>
+        </header>
+
+        <div class="card mt-4" th:each="data: ${listaCompleta}">
 
             <div class="card-header">
-                Informacion de la(s) mascota(s) del cliente.
+                <p>Informacion de la(s) mascota(s) del cliente. </p>
+                <p th:text="${data.client.names} + ' ' +${data.client.lastNames}"> </p>
             </div>
 
             <div class="card-body">
 
-                <p th:text="${data.getClient().getId()}"></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <table class="table table-striped">
+
+                    <thead>
+                    <tr>
+                        <th scope="col"> Nombre </th>
+                        <th scope="col"> Raza </th>
+                        <th scope="col"> Edad </th>
+                        <th scope="col"> Peso(Kg) </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr th:each="mascota: ${data.pet}">
+
+                            <div th:each="registro: ${mascota.pet}" class="mt-3">
+
+                                <td th:text="${registro.name}"> </td>
+                                <td th:text="${registro.race}"> </td>
+                                <td th:text="${registro.age}"> </td>
+                                <td th:text="${registro.weight}"> </td>
+
+                            </div>
+
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th scope="col"> Medicamento </th>
+                                    <th scope="col"> Descripcion </th>
+                                    <th scope="col"> Dosis (mg) </th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr th:each="registro: ${mascota.medicines}" class="mt-3"  >
+                                    <td th:text="${registro.name}"> </td>
+                                    <td th:text="${registro.description}"> </td>
+                                    <td th:text="${registro.dose}"> </td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
 
             </div>
-
         </div>
 
     </div>
@@ -39,7 +82,7 @@
     <div class="container mt-5">
 
         <a th:href="@{/api/v1/home}">
-            <button type="button" class="btn btn-primary"> Volver al inicio </button>
+            <button type="button" class="btn btn-primary botonReporte"> Volver al inicio </button>
         </a>
 
     </div>
