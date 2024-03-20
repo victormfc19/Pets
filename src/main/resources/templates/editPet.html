@@ -10,9 +10,11 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container mt-5">
 
-  <h1> Editar informacion de la mascota </h1>
+  <header class="custom-header">
+    <h1> Editar informacion de la mascota </h1>
+  </header>
 
   <form th:action="@{/api/v1/petsUpdated/}+${id}" th:object="${mascota_editada}"  method="post">
     <div class="row">
@@ -20,22 +22,27 @@
       <div class="col-md-6">
 
         <div class="form-group">
+          <label class="form-label"> Nombre mascota </label>
           <input type="text" class="form-control" id="nombreMascota" placeholder="Nombre de la mascota" th:field="*{name}">
         </div>
 
         <div class="form-group">
+          <label class="form-label"> Raza </label>
           <input type="text" class="form-control" id="raza" placeholder="Raza" th:field="*{race}">
         </div>
 
         <div class="form-group">
+          <label class="form-label"> Edad </label>
           <input type="number" class="form-control" id="edad" placeholder="Edad" th:field="*{age}">
         </div>
 
         <div class="form-group">
+          <label class="form-label"> Peso </label>
           <input type="number" class="form-control" id="peso" placeholder="Peso" th:field="*{weight}">
         </div>
 
         <div class="form-group">
+          <label class="form-label"> Cedula del responsable </label>
           <input type="number" class="form-control" id="idClient" placeholder="idCliente" th:field="*{idCliente}">
         </div>
 
