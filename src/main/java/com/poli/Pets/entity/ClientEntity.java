@@ -28,6 +28,14 @@ public class ClientEntity {
     @Column(name = "telefono")
     private String phone;
 
+    public ClientEntity(String id, String names, String lastNames, String address, String phone) {
+        this.id = id;
+        this.names = names;
+        this.lastNames = lastNames;
+        this.address = address;
+        this.phone = phone;
+    }
+
     public ClientEntity() {}
 
     public String getId() {

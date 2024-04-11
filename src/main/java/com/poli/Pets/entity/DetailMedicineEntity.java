@@ -19,6 +19,11 @@ public class DetailMedicineEntity {
 
     public DetailMedicineEntity() {}
 
+    public DetailMedicineEntity(Integer id_pet, String id_medicine) {
+        this.id_pet = id_pet;
+        this.id_medicine = id_medicine;
+    }
+
     public Integer getId_pet() {
         return id_pet;
     }

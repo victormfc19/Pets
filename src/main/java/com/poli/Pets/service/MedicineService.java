@@ -22,17 +22,17 @@ public class MedicineService {
         return medicineRepository.findById(id);
     }
 
-    public void saveMedicine(MedicineEntity medicine){
-        medicineRepository.save(medicine);
+    public MedicineEntity saveMedicine(MedicineEntity medicine){
+        return medicineRepository.save(medicine);
     }
 
     public void deleteMedicine(String id){
         medicineRepository.deleteById(id);
     }
 
-    public MedicineEntity updateMedicine(MedicineEntity newMedicine){
+    public MedicineEntity updateMedicine(String id, MedicineEntity newMedicine){
 
-        Optional<MedicineEntity> medicine = medicineRepository.findById(newMedicine.getId());
+        Optional<MedicineEntity> medicine = medicineRepository.findById(id);
 
         if(medicine.isPresent()){
 

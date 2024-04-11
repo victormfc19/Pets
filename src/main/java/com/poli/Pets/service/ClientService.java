@@ -23,17 +23,17 @@ public class ClientService {
         return clientRepository.findById(id);
     }
 
-    public void saveClient(ClientEntity client){
-        clientRepository.save(client);
+    public ClientEntity saveClient(ClientEntity client){
+       return clientRepository.save(client);
     }
 
     public void deleteClient(String id){
         clientRepository.deleteById(id);
     }
 
-    public ClientEntity updateClient(ClientEntity newClient){
+    public ClientEntity updateClient(String id, ClientEntity newClient){
 
-        Optional<ClientEntity> client = clientRepository.findById(newClient.getId());
+        Optional<ClientEntity> client = clientRepository.findById(id);
 
         if( client.isPresent() ){
 

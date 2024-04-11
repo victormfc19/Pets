@@ -18,7 +18,7 @@ public interface DetailMedicineRepository extends JpaRepository<DetailMedicineEn
     int deleteAllById(Integer id_mascota);
 
     @Transactional
-    @Query(value = "select m.nombre ,m.descripcion ,m.dosis  from detalle_medicamento dm \n" +
+    @Query(value = "select m.id, m.nombre ,m.descripcion ,m.dosis  from detalle_medicamento dm \n" +
             "join medicamento m on id_medicamento = m.id \n" +
             "where id_mascota = :id_mascota", nativeQuery = true)
     List<String> infoMedicinesByPet(Integer id_mascota);

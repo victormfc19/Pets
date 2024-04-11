@@ -24,7 +24,8 @@ public class MedicineEntity {
 
     public MedicineEntity() {}
 
-    public MedicineEntity(String name, String description, int dose) {
+    public MedicineEntity(String id, String name, String description, int dose) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.dose = dose;

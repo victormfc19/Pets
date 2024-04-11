@@ -1,0 +1,98 @@
+### Mutaciones
+type Mutation {
+    savePet(
+        name: String,
+        race: String,
+        age: Int,
+        weight: Int,
+        idCliente: String
+    ): PetEntity
+
+    updatePet(
+        id: Int,
+        name: String,
+        race: String,
+        age: Int,
+        weight: Int,
+        idCliente: String
+    ): PetEntity
+
+    deletePet(id: Int): String
+
+    saveClient(
+        id: String,
+        names: String,
+        lastNames: String,
+        address: String,
+        phone: String
+    ): ClientEntity
+
+    updateClient(
+        id: String,
+        names: String,
+        lastNames: String,
+        address: String,
+        phone: String
+    ): String
+
+    deleteClient(id: String): String
+
+    saveMedicine(
+        id: String,
+        name: String,
+        description: String,
+        dose: Int
+    ): MedicineEntity
+
+    updateMedicine(
+        id: String,
+        name: String,
+        description: String,
+        dose: Int
+    ): String
+
+    deleteMedicine(id: String): String
+}
+
+
+### Querys
+type Query {
+    getPets: [PetEntity]
+    getPetById(id: Int): PetEntity
+
+    getClients: [ClientEntity]
+    getClientById(id: String): ClientEntity
+
+    getMedicines: [MedicineEntity]
+    getMedicineById(id: String): MedicineEntity
+
+    getReport(id: String): String
+}
+
+
+
+### Entidades
+
+type PetEntity {
+    id: Int,
+    name: String,
+    race: String,
+    age: Int,
+    weight: Int,
+    idCliente: String
+}
+
+type ClientEntity {
+    id: String,
+    names: String,
+    lastNames: String,
+    address: String,
+    phone: String
+}
+
+type MedicineEntity {
+    id: String,
+    name: String,
+    description: String,
+    dose: Int
+}

@@ -32,12 +32,12 @@ public class PetEntity {
 
     public PetEntity() {}
 
-    public PetEntity(Integer id, String name, String race, int age, int weight) {
-        this.id = id;
+    public PetEntity(String name, String race, int age, int weight, String idCliente) {
         this.name = name;
         this.race = race;
         this.age = age;
         this.weight = weight;
+        this.idCliente = idCliente;
     }
 
     public Integer getId() {
